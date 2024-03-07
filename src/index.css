@@ -1,13 +1,223 @@
-body {
+* {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+html {
+  font-size: 62.5%;
+  min-height: 100vh;
+}
+
+body {
+  background: linear-gradient(to top, #6dd5ed, #2193b0);
+}
+
+.App {
+  font-family: "Rubik", sans-serif;
+  text-align: center;
+  font-size: 1.6rem;
+  max-width: 48rem;
+  margin: 8rem auto;
+  background-color: #ffffff69;
+  padding: 2rem;
+  border-radius: 5px;
+}
+
+.form {
+  margin-bottom: 2.5rem;
+}
+
+.heading-primary {
+  font-size: 5rem;
+  margin-bottom: 4.8rem;
+  color: #135f70;
+
+  animation: blurIn 1s ease-in-out;
+}
+
+/* USER INPUT & BUTTON */
+.input-field {
+  display: flex;
+  animation: moveIn 1s ease-in-out;
+}
+
+.user-input {
+  font-family: inherit;
+  font-size: inherit;
+  padding: 1.2rem 1rem;
+  border: none;
+  border-radius: 2px;
+  flex-basis: 90%;
+  transition: all 0.3s;
+  background-color: #268aa064;
+  color: #135f70;
+}
+
+input::placeholder {
+  color: #135f70;
+}
+
+.user-input:focus {
+  outline: none;
+}
+
+.user-input:hover,
+.user-input:hover ~ button {
+  transform: translateY(-0.2rem);
+  box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.1);
+}
+
+.plus-button {
+  font-size: 2.5rem;
+  cursor: pointer;
+  background-color: #135f70;
+  color: white;
+  border: none;
+  border-radius: 2px;
+  margin-left: 0.5rem;
+  flex-basis: 10%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: all 0.15s;
+}
+
+.plus-button:hover {
+  background-color: #187589;
+}
+
+/* TODO LIST, CHECKBOX & DELETE BUTTON */
+li {
+  list-style: none;
+  padding: 10px;
+  border-radius: 2px;
+  background-color: aliceblue;
+  margin-bottom: 1rem;
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  overflow: hidden;
+  background-color: #ffffff7f;
+
+  animation: moveIn 0.6s ease-in-out;
+}
+
+.task-text {
+  transition: all 0.3s;
+  color: #135f70;
+  font-weight: 500;
+}
+
+li:hover .task-text {
+  transform: translateX(0.5rem) scale(1.05);
+}
+
+.li-right {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.cross {
+  border: none;
+  padding: 0.5rem;
+  margin-left: 0.5rem;
+  cursor: pointer;
+  opacity: 0;
+  background-color: transparent;
+  animation: none;
+  transform: translateY(-5rem);
+  transition: all 0.5s;
+}
+
+li:hover .cross {
+  opacity: 1;
+  transform: translateY(-0.17rem) scale(1.2);
+  box-shadow: none;
+}
+
+li:hover .cross:hover {
+  transform: translateY(-0.17rem) scale(1.4);
+}
+
+li:hover input[type="checkbox"] {
+  opacity: 1;
+  transform: scale(1.5);
+  box-shadow: none;
+}
+
+input[type="checkbox"] {
+  animation: none;
+  opacity: 0;
+  cursor: pointer;
+  accent-color: #135f70;
+  transition: all 0.5s;
+  transform: translateY(5rem);
+}
+
+/* STATS */
+.stats {
+  font-size: 1.6rem;
+  font-style: italic;
+  color: #135f70;
+  margin-top: 3.2rem;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+}
+
+.clear-button {
+  background-color: #135f70;
+  color: white;
+  padding: 1rem;
+  border: none;
+  border-radius: 5px;
+  font-family: inherit;
+  cursor: pointer;
+  transition: all 0.15s;
+}
+
+.clear-button:hover {
+  background-color: #187589;
+}
+
+/* ANIMATIONS */
+@keyframes blurIn {
+  0% {
+    opacity: 0;
+    transform: scale(0.5);
+    filter: blur(2px);
+  }
+
+  50% {
+    transform: scale(1.05);
+  }
+
+  100% {
+    opacity: 1;
+    transform: scale(1);
+    filter: blur(0);
+  }
+}
+
+@keyframes moveIn {
+  0% {
+    opacity: 0;
+    filter: blur(2px);
+    transform: scale(0.2);
+  }
+
+  70% {
+    transform: scale(1.05);
+  }
+
+  100% {
+    opacity: 1;
+    filter: blur(0);
+    transform: scale(1);
+  }
 }
